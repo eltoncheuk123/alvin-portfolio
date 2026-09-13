@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Alvin Profolio｜Full-Stack & Mobile App Developer",
+  title: "Alvin Cheuk Profoilo｜Full-Stack & Mobile App Developer",
   description:
     "專注於 Next.js、React Native、TypeScript 與 AI 系統整合。從 UI/UX 原型、前後端開發到雲端部署與 App Store 上架的全流程實戰作品集。",
 };

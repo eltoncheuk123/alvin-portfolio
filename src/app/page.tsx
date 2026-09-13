@@ -7,13 +7,28 @@ import {
   X,
   ArrowRight,
   Github,
-  Linkedin,
   Mail,
+  MessageCircle,
+  Globe,
 } from "lucide-react";
 
-const LINKEDIN_URL = "https://www.linkedin.com/";
 const GITHUB_URL = "https://github.com/";
-const EMAIL_URL = "mailto:hello@example.com";
+const EMAIL_URL = "mailto:eltoncheuk@hotmail.com";
+const WHATSAPP_URL =
+  "https://wa.me/85295039505?text=Hello,%20我想了解你的作品集／合作機會";
+
+function GooglePlayIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className={className}
+      aria-hidden="true"
+      fill="currentColor"
+    >
+      <path d="M3.6 2.7c-.3.2-.5.6-.5 1v16.6c0 .4.2.8.5 1l9.5-9.3L3.6 2.7zm11.3 6.2 2.3-1.3L5.2 1.4c-.2 0-.3 0-.4.1l10.1 7.4zm3.4 1.9-2.6 1.5-2.5-2.4 2.5-2.4 2.6 1.5c.6.3.6 1.1 0 1.8zM4.8 22.5c.1.1.2.1.4.1l12-6.2-2.3-1.3-10.1 7.4z" />
+    </svg>
+  );
+}
 
 const NAV_LINKS = [
   { href: "#projects", label: "精選專案" },
@@ -56,8 +71,13 @@ const PROJECTS = [
     challenge:
       "要把 LLM 解讀穩定嵌進互動占卜體驗，同時兼顧趣味留存與移動端上架變現。",
     outcome: "完成完整占卜流程、今日運勢／合拍度模組，並支援 Android 打包與廣告整合。",
-    image: "/projects/cat-tarot.png",
+    image: "/projects/cat-tarot.jpg",
     imageAlt: "貓巫師塔羅 App 首頁截圖",
+    website: "https://www.catwiz-tarot.hk/",
+    websiteLabel: "www.catwiz-tarot.hk",
+    playStore:
+      "https://play.google.com/store/apps/details?id=com.catwiz.tarot",
+    playStoreLabel: "貓巫師塔羅",
   },
   {
     number: "02",
@@ -67,8 +87,10 @@ const PROJECTS = [
     challenge:
       "大量客戶名單需要可搜尋、可批次選取，並串接 WhatsApp 自動化發送流程。",
     outcome: "建成可管理數千聯絡人的 CRM，支援匯入、標籤篩選與廣播任務。",
-    image: "/projects/whatsapp-crm.png",
+    image: "/projects/whatsapp-crm.jpg",
     imageAlt: "WhatsApp CRM 聯絡人列表截圖",
+    whatsappInquiry: true,
+    whatsappLabel: "WhatsApp 查詢更多",
   },
   {
     number: "03",
@@ -78,8 +100,10 @@ const PROJECTS = [
     challenge:
       "需要把複雜評分邏輯收斂成清楚的查詢與結果呈現，讓決策流程更快。",
     outcome: "完成暗色儀表板與評分查詢主流程，支援代號／名稱搜尋。",
-    image: "/projects/stock-score.png",
+    image: "/projects/stock-score-v3.jpg",
     imageAlt: "StockScore 股票評分程式截圖",
+    website: "https://my-stock-screener-two.vercel.app/",
+    websiteLabel: "my-stock-screener-two.vercel.app",
   },
   {
     number: "04",
@@ -89,8 +113,10 @@ const PROJECTS = [
     challenge:
       "香港頂讓市場資訊分散；需把盤源、分類與查詢 CTA 做成可信賴的交易入口。",
     outcome: "上線生意買賣／頂讓資訊站，涵蓋飲食、零售、教育等分類與查詢轉換。",
-    image: "/projects/123deal.png",
+    image: "/projects/deal-123.jpg",
     imageAlt: "123deal 網站首頁截圖",
+    website: "https://www.123deal.com.hk",
+    websiteLabel: "www.123deal.com.hk",
   },
   {
     number: "05",
@@ -100,8 +126,10 @@ const PROJECTS = [
     challenge:
       "要把卡路里預算、體型策略與餐點輸入整合成可執行的減肥決策工具。",
     outcome: "完成可即時計算預算與處方建議的 AI 營養師網頁產品。",
-    image: "/projects/nutritionist.png",
+    image: "/projects/nutritionist.jpg",
     imageAlt: "AI 營養師 Diet Dashboard 截圖",
+    website: "https://www.ainutrionist.vercel.app",
+    websiteLabel: "www.ainutrionist.vercel.app",
   },
 ] as const;
 
@@ -116,7 +144,7 @@ export default function Home() {
             href="#top"
             className="font-display text-xl font-semibold tracking-tight text-ink"
           >
-            Alvin Profolio
+            Alvin Cheuk Profoilo
           </a>
 
           <nav className="hidden items-center gap-8 md:flex">
@@ -133,13 +161,13 @@ export default function Home() {
 
           <div className="flex items-center gap-3">
             <a
-              href={LINKEDIN_URL}
+              href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="hidden items-center gap-2 rounded-md bg-accent px-4 py-2 text-sm font-medium text-paper transition hover:bg-accent-hover sm:inline-flex"
             >
-              <Linkedin className="h-3.5 w-3.5" />
-              LinkedIn
+              <MessageCircle className="h-3.5 w-3.5" />
+              WhatsApp
             </a>
             <button
               type="button"
@@ -166,14 +194,14 @@ export default function Home() {
                 </a>
               ))}
               <a
-                href={LINKEDIN_URL}
+                href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-2 inline-flex items-center justify-center gap-2 rounded-md bg-accent px-4 py-3 text-sm font-medium text-paper"
                 onClick={() => setMobileOpen(false)}
               >
-                <Linkedin className="h-4 w-4" />
-                LinkedIn
+                <MessageCircle className="h-4 w-4" />
+                WhatsApp
               </a>
             </div>
           </div>
@@ -186,15 +214,17 @@ export default function Home() {
           <div className="mx-auto max-w-6xl px-4 pb-16 pt-16 sm:px-6 sm:pb-20 sm:pt-20 lg:px-8 lg:pb-24 lg:pt-24">
             <div className="max-w-3xl animate-fade-up">
               <p className="font-display text-4xl font-semibold tracking-tight text-ink sm:text-5xl lg:text-6xl">
-                Alvin Profolio
+                Alvin Cheuk
               </p>
               <h1 className="mt-6 font-display text-2xl font-medium leading-snug tracking-tight text-ink sm:text-3xl lg:text-[2.15rem] lg:leading-[1.25]">
                 Full-Stack &amp; Mobile App Developer
               </h1>
               <p className="prose-measure mt-5 text-base leading-relaxed text-ink-muted sm:text-lg">
-                專注於 Next.js、React Native、TypeScript 與 AI
-                系統整合。具備從 UI/UX
-                原型設計、前後端開發到雲端部署與 App Store 上架的全流程實戰經驗。
+                已成功學習 AI
+                開發技能，擅長運用 AI
+                工具加速從 UI/UX
+                原型設計、前後端開發、自家使用，到雲端部署與 App Store
+                上架的完整流程。
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
                 <a
@@ -203,15 +233,6 @@ export default function Home() {
                 >
                   瀏覽專案作品
                   <ArrowRight className="h-4 w-4" />
-                </a>
-                <a
-                  href={LINKEDIN_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-2 py-3 text-sm font-medium text-ink-muted transition hover:text-ink"
-                >
-                  <Linkedin className="h-4 w-4" />
-                  LinkedIn
                 </a>
               </div>
             </div>
@@ -292,23 +313,76 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="mt-8 flex flex-wrap gap-6 text-sm">
-                  <a
-                    href={GITHUB_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 font-medium text-accent underline-offset-4 hover:underline"
-                  >
-                    查看 Demo
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </a>
-                  <a
-                    href="#contact"
-                    className="inline-flex items-center gap-1.5 font-medium text-ink-muted underline-offset-4 hover:text-ink hover:underline"
-                  >
-                    詳細簡介
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </a>
+                <div className="mt-8 flex flex-wrap items-center gap-5 text-sm">
+                  {"website" in item && item.website ? (
+                    <a
+                      href={item.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 font-medium text-accent underline-offset-4 transition hover:underline"
+                      aria-label="前往網站"
+                    >
+                      <Globe className="h-4 w-4 shrink-0" />
+                      <span className="break-all">
+                        {"websiteLabel" in item && item.websiteLabel
+                          ? item.websiteLabel
+                          : item.website.replace(/^https?:\/\//, "").replace(/\/$/, "")}
+                      </span>
+                    </a>
+                  ) : null}
+                  {"playStore" in item && item.playStore ? (
+                    <a
+                      href={item.playStore}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 font-medium text-accent underline-offset-4 transition hover:underline"
+                      aria-label="Google Play"
+                    >
+                      <GooglePlayIcon className="h-4 w-4 shrink-0" />
+                      <span>
+                        {"playStoreLabel" in item && item.playStoreLabel
+                          ? item.playStoreLabel
+                          : "Google Play"}
+                      </span>
+                    </a>
+                  ) : null}
+                  {"whatsappInquiry" in item && item.whatsappInquiry ? (
+                    <a
+                      href={`${WHATSAPP_URL.split("?")[0]}?text=${encodeURIComponent("Hello, 我想查詢更多 WhatsApp 群發 CRM 詳情")}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 font-medium text-accent underline-offset-4 transition hover:underline"
+                    >
+                      <MessageCircle className="h-4 w-4 shrink-0" />
+                      <span>
+                        {"whatsappLabel" in item && item.whatsappLabel
+                          ? item.whatsappLabel
+                          : "WhatsApp 查詢更多"}
+                      </span>
+                    </a>
+                  ) : null}
+                  {"website" in item ||
+                  "playStore" in item ||
+                  "whatsappInquiry" in item ? null : (
+                    <>
+                      <a
+                        href={GITHUB_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 font-medium text-accent underline-offset-4 hover:underline"
+                      >
+                        查看 Demo
+                        <ArrowRight className="h-3.5 w-3.5" />
+                      </a>
+                      <a
+                        href="#contact"
+                        className="inline-flex items-center gap-1.5 font-medium text-ink-muted underline-offset-4 hover:text-ink hover:underline"
+                      >
+                        詳細簡介
+                        <ArrowRight className="h-3.5 w-3.5" />
+                      </a>
+                    </>
+                  )}
                 </div>
               </article>
             ))}
@@ -359,17 +433,13 @@ export default function Home() {
             </div>
             <div className="space-y-5 text-base leading-relaxed text-ink-muted sm:text-lg">
               <p>
-                我是一名 Full-Stack &amp; Mobile App
-                Developer，習慣從商業問題出發，用可上線的產品回應需求。
+                Slasher｜完成 AI Marketing 課程並實戰半年。
               </p>
               <p>
-                日常工作涵蓋 UI/UX 原型、Next.js / React Native
-                開發、API 與 AI 系統整合，以及 Vercel
-                部署與雙平台上架。重視可維護架構、清楚溝通與快速迭代。
+                用 AI 輔助開發，加快交付速度，並以商業角度評估每個功能是否值得做。已獨立完成並上架「貓咪塔羅牌」App（idea → 開發 → 上架 → 變現規劃全流程）。
               </p>
               <p>
-                正在尋找能持續打磨產品與工程品質的 Full-Stack / Mobile
-                職缺，歡迎透過 LinkedIn 或 Email 進一步交流。
+                擅長：網站開發、App MVP 開發、AI 行銷推廣。
               </p>
             </div>
           </div>
@@ -383,17 +453,17 @@ export default function Home() {
                 聯絡我 (Contact)
               </h2>
               <p className="mx-auto mt-4 max-w-xl text-ink-muted">
-                對我的專案或背景有興趣，歡迎透過 LinkedIn 或 Email 聯繫。
+                對我的專案或背景有興趣，歡迎透過 WhatsApp 或 Email 聯繫。
               </p>
               <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
                 <a
-                  href={LINKEDIN_URL}
+                  href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-md bg-accent px-6 py-3.5 text-sm font-medium text-paper transition hover:bg-accent-hover"
                 >
-                  <Linkedin className="h-4 w-4" />
-                  LinkedIn
+                  <MessageCircle className="h-4 w-4" />
+                  WhatsApp
                 </a>
                 <a
                   href={EMAIL_URL}
@@ -408,10 +478,10 @@ export default function Home() {
             <footer className="mt-10 flex flex-col items-center justify-between gap-6 sm:flex-row">
               <div>
                 <p className="font-display text-sm font-semibold text-ink">
-                  Alvin Profolio
+                  Alvin Cheuk Profoilo
                 </p>
                 <p className="mt-1 text-xs text-ink-faint">
-                  © {new Date().getFullYear()} Alvin Profolio. All rights
+                  © {new Date().getFullYear()} Alvin Cheuk Profoilo. All rights
                   reserved.
                 </p>
               </div>
@@ -425,16 +495,6 @@ export default function Home() {
                 >
                   <Github className="h-3.5 w-3.5" />
                   GitHub
-                </a>
-                <a
-                  href={LINKEDIN_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 transition hover:text-ink"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="h-3.5 w-3.5" />
-                  LinkedIn
                 </a>
               </div>
             </footer>
