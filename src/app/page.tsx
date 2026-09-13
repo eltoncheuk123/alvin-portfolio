@@ -62,7 +62,24 @@ const TECH_STACK = [
   },
 ] as const;
 
-const PROJECTS = [
+type Project = {
+  number: string;
+  title: string;
+  tags: string[];
+  role: string;
+  challenge: string;
+  outcome: string;
+  image: string;
+  imageAlt: string;
+  website?: string;
+  websiteLabel?: string;
+  playStore?: string;
+  playStoreLabel?: string;
+  whatsappInquiry?: boolean;
+  whatsappLabel?: string;
+};
+
+const PROJECTS: Project[] = [
   {
     number: "01",
     title: "貓貓塔羅牌（貓巫師 CatWiz）",
@@ -131,7 +148,7 @@ const PROJECTS = [
     website: "https://www.ainutrionist.vercel.app",
     websiteLabel: "www.ainutrionist.vercel.app",
   },
-] as const;
+];
 
 export default function Home() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -314,7 +331,7 @@ export default function Home() {
                 </div>
 
                 <div className="mt-8 flex flex-wrap items-center gap-5 text-sm">
-                  {"website" in item && item.website ? (
+                  {item.website ? (
                     <a
                       href={item.website}
                       target="_blank"
@@ -324,13 +341,14 @@ export default function Home() {
                     >
                       <Globe className="h-4 w-4 shrink-0" />
                       <span className="break-all">
-                        {"websiteLabel" in item && item.websiteLabel
-                          ? item.websiteLabel
-                          : item.website.replace(/^https?:\/\//, "").replace(/\/$/, "")}
+                        {item.websiteLabel ??
+                          item.website
+                            .replace(/^https?:\/\//, "")
+                            .replace(/\/$/, "")}
                       </span>
                     </a>
                   ) : null}
-                  {"playStore" in item && item.playStore ? (
+                  {item.playStore ? (
                     <a
                       href={item.playStore}
                       target="_blank"
@@ -339,14 +357,10 @@ export default function Home() {
                       aria-label="Google Play"
                     >
                       <GooglePlayIcon className="h-4 w-4 shrink-0" />
-                      <span>
-                        {"playStoreLabel" in item && item.playStoreLabel
-                          ? item.playStoreLabel
-                          : "Google Play"}
-                      </span>
+                      <span>{item.playStoreLabel ?? "Google Play"}</span>
                     </a>
                   ) : null}
-                  {"whatsappInquiry" in item && item.whatsappInquiry ? (
+                  {item.whatsappInquiry ? (
                     <a
                       href={`${WHATSAPP_URL.split("?")[0]}?text=${encodeURIComponent("Hello, 我想查詢更多 WhatsApp 群發 CRM 詳情")}`}
                       target="_blank"
@@ -354,16 +368,10 @@ export default function Home() {
                       className="inline-flex items-center gap-2 font-medium text-accent underline-offset-4 transition hover:underline"
                     >
                       <MessageCircle className="h-4 w-4 shrink-0" />
-                      <span>
-                        {"whatsappLabel" in item && item.whatsappLabel
-                          ? item.whatsappLabel
-                          : "WhatsApp 查詢更多"}
-                      </span>
+                      <span>{item.whatsappLabel ?? "WhatsApp 查詢更多"}</span>
                     </a>
                   ) : null}
-                  {"website" in item ||
-                  "playStore" in item ||
-                  "whatsappInquiry" in item ? null : (
+                  {item.website || item.playStore || item.whatsappInquiry ? null : (
                     <>
                       <a
                         href={GITHUB_URL}
