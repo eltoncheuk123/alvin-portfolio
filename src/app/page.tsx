@@ -6,7 +6,6 @@ import {
   Menu,
   X,
   ArrowRight,
-  Github,
   Mail,
   MessageCircle,
   Globe,
@@ -492,18 +491,6 @@ export default function Home() {
                   © {new Date().getFullYear()} Alvin Cheuk Profoilo. All rights
                   reserved.
                 </p>
-              </div>
-              <div className="flex items-center gap-5 text-sm text-ink-muted">
-                <a
-                  href={GITHUB_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 transition hover:text-ink"
-                  aria-label="GitHub"
-                >
-                  <Github className="h-3.5 w-3.5" />
-                  GitHub
-                </a>
               </div>
             </footer>
           </div>
