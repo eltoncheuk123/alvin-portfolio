@@ -144,8 +144,8 @@ const PROJECTS: Project[] = [
     outcome: "完成可即時計算預算與處方建議的 AI 營養師網頁產品。",
     image: "/projects/nutritionist.jpg",
     imageAlt: "AI 營養師 Diet Dashboard 截圖",
-    website: "https://www.ainutrionist.vercel.app",
-    websiteLabel: "www.ainutrionist.vercel.app",
+    website: "https://ainutrionist.vercel.app/",
+    websiteLabel: "ainutrionist.vercel.app",
   },
 ];
 
@@ -160,7 +160,7 @@ export default function Home() {
             href="#top"
             className="font-display text-xl font-semibold tracking-tight text-ink"
           >
-            Alvin Cheuk Profoilo
+            Alvin Cheuk Portfolio
           </a>
 
           <nav className="hidden items-center gap-8 md:flex">
@@ -236,8 +236,7 @@ export default function Home() {
                 Full-Stack &amp; Mobile App Developer
               </h1>
               <p className="prose-measure mt-5 text-base leading-relaxed text-ink-muted sm:text-lg">
-                已成功學習 AI
-                開發技能，擅長運用 AI
+                擅長運用 AI
                 工具加速從 UI/UX
                 原型設計、前後端開發、自家使用，到雲端部署與 App Store
                 上架的完整流程。
@@ -443,7 +442,12 @@ export default function Home() {
                 Slasher｜完成 AI Marketing 課程並實戰半年。
               </p>
               <p>
-                用 AI 輔助開發，加快交付速度，並以商業角度評估每個功能是否值得做。已獨立完成並上架「貓咪塔羅牌」App（idea → 開發 → 上架 → 變現規劃全流程）。
+                不只寫代碼，更關注商業結果。利用 AI
+                工具鏈加速產品交付，精準聚焦高價值的核心功能。
+              </p>
+              <p>
+                已獨立完成並上架「貓咪塔羅牌」App（idea → 開發 → 上架 →
+                變現規劃全流程）。
               </p>
               <p>
                 擅長：網站開發、App MVP 開發、AI 行銷推廣。
@@ -485,10 +489,10 @@ export default function Home() {
             <footer className="mt-10 flex flex-col items-center justify-between gap-6 sm:flex-row">
               <div>
                 <p className="font-display text-sm font-semibold text-ink">
-                  Alvin Cheuk Profoilo
+                  Alvin Cheuk Portfolio
                 </p>
                 <p className="mt-1 text-xs text-ink-faint">
-                  © {new Date().getFullYear()} Alvin Cheuk Profoilo. All rights
+                  © {new Date().getFullYear()} Alvin Cheuk Portfolio. All rights
                   reserved.
                 </p>
               </div>
